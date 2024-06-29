@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Edit Task Type</title>
+    <link type="text/css" rel="stylesheet" href="http://localhost:8080/Help-Desk-Web/css/style.css"/>
+</h:head>
+<h:body>
+    <div class="container">
+    	<header>
+    		<nav>
+          		<ul>
+            		<li><h:link outcome="adminDashboard" value="Dashboard"/></li>
+            		<li><h:form><h:commandLink action="#{updateProfileBean.prepareEdit(sessionBean.loggedInUser)}" value="Update Profile" /></h:form></li>
+            		<li><h:form><h:commandLink action="#{sessionBean.logout}" value="Logout" /></h:form></li>
+        		</ul>
+    		</nav>
+    	</header>
+        <h1>Edit Task Type</h1>
+        <h:form>
+            <div class="form-group div-form">
+                <h:outputLabel for="taskTypeName" value="Task Type Name:" />
+                <h:inputText id="taskTypeName" value="#{taskTypeBean.selectedTaskType.name}" required="true" />
+            </div>
+            <h:commandButton value="Update Task Type" action="#{taskTypeBean.updateTaskType}" class="btn btn-primary" />
+            <h:link outcome="manageTaskTypes" value="Cancel" class="btn btn-danger" />
+        </h:form>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Manage Users</title>
+    <link type="text/css" rel="stylesheet" href="http://localhost:8080/Help-Desk-Web/css/style.css"/>
+</h:head>
+<h:body>
+    <div class="container">
+    	<header>
+            <nav>
+                <ul>
+                	<li><h:link outcome="adminDashboard" value="Dashboard"/></li>
+                    <li><h:form><h:commandLink action="#{updateProfileBean.prepareEdit(sessionBean.loggedInUser)}" value="Update Profile" /></h:form></li>
+                    <li><h:form><h:commandLink action="#{sessionBean.logout}" value="Logout" /></h:form></li>
+                </ul>
+            </nav>
+        </header>
+    	<div class="form-group div-form" style="display: flex;align-items: baseline;">
+        	<h2>User List</h2>
+        	<h:link outcome="addUser" value="Add User" styleClass="btn-success"/>
+        </div>
+        
+        <h:dataTable value="#{userBean.users}" var="user">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{user.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Username</f:facet>
+                #{user.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{user.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Role</f:facet>
+                #{user.role}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:form>
+                    <h:commandButton value="Edit" action="#{userBean.prepareEdit(user)}" styleClass="btn btn-primary" />
+                    <h:commandButton value="Delete" action="#{userBean.deleteUser(user)}" styleClass="btn btn-danger" 
+                                     onclick="return confirm('Are you sure you want to delete this user?');" />
+                </h:form>
+            </h:column>
+        </h:dataTable>
+    </div>
+</h:body>
+</html>

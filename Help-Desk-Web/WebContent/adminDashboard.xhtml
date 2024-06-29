@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Admin Dashboard</title>
+    <link type="text/css" rel="stylesheet" href="http://localhost:8080/Help-Desk-Web/css/style.css"/>
+</h:head>
+<h:body>
+    <div class="container">
+    	<header>
+            <nav>
+                <ul>
+                	<li><h:link outcome="adminDashboard" value="Dashboard"/></li>
+                    <li><h:form><h:commandLink action="#{updateProfileBean.prepareEdit(sessionBean.loggedInUser)}" value="Update Profile" /></h:form></li>
+                    <li><h:form><h:commandLink action="#{sessionBean.logout}" value="Logout" /></h:form></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Welcome, #{sessionBean.loggedInUser.username}!</h1>
+        
+        <div class="dashboard-section">
+            <h2>Manage Projects</h2>
+            <h:link outcome="manageProjects" value="Manage Projects" styleClass="btn btn-primary" />
+        </div>
+        
+        <div class="dashboard-section">
+            <h2>Manage Users</h2>
+            <h:link outcome="manageUsers" value="Manage Users" styleClass="btn btn-primary" />
+        </div>
+        
+        <div class="dashboard-section">
+            <h2>Manage Task Types</h2>
+            <h:link outcome="manageTaskTypes" value="Manage Task Types" styleClass="btn btn-primary" />
+        </div>
+
+        
+        <div class="dashboard-section">
+            <h2>Generate Reports</h2>
+            <h:form>
+                <h:commandButton value="Generate Employee Work Hours Report" action="#{reportBean.generateEmployeeWorkHoursReport}" styleClass="btn btn-primary" />
+                <span></span>
+                <h:commandButton value="Generate Project Work Hours Report" action="#{reportBean.generateProjectWorkHoursReport}" styleClass="btn btn-primary" />
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

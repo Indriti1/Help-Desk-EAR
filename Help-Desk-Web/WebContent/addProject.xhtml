@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Manage Projects</title>
+    <h:outputStylesheet name="css/styles.css" />
+    <link type="text/css" rel="stylesheet" href="http://localhost:8080/Help-Desk-Web/css/style.css"/>
+</h:head>
+<h:body>
+    <div class="container">
+    	<header>
+            <nav>
+                <ul>
+                	<li><h:link outcome="adminDashboard" value="Dashboard"/></li>
+                    <li><h:form><h:commandLink action="#{updateProfileBean.prepareEdit(sessionBean.loggedInUser)}" value="Update Profile" /></h:form></li>
+                    <li><h:form><h:commandLink action="#{sessionBean.logout}" value="Logout" /></h:form></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Add Project</h1>
+        <h:form>
+            <div class="form-group div-form">
+                <h:outputLabel for="projectName" value="Project Name:" />
+                <h:inputText id="projectName" value="#{projectBean.newProject.name}" required="true" />
+            </div>
+      
+            <div class="form-group div-form">
+                <h:outputLabel for="customer" value="Customer:" />
+                <h:selectOneMenu id="customer" value="#{projectBean.selectedCustomerId}" required="true">
+                    <f:selectItem itemLabel="Select a customer" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{projectBean.customers}" var="customer"
+                                   itemLabel="#{customer.username}" itemValue="#{customer.id}" />
+                </h:selectOneMenu>
+            </div>
+            <h:commandButton value="Add Project" action="#{projectBean.addProject}" styleClass="btn btn-success" />
+            <h:link outcome="manageProjects" value="Cancel" styleClass="btn btn-danger" />
+        </h:form>
+    </div>
+</h:body>
+</html>
