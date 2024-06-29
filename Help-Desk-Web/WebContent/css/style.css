@@ -6,10 +6,40 @@ body {
     color: #333; 
 }
 
+.login-input {
+	width: 95% !important;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.body-login {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f0f0f0;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.container-login {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.error-message {
+	color: red;
+	margin-bottom: 1rem;
 }
 
 header {
@@ -296,6 +326,13 @@ th {
 	display: flex;
 	align-items: baseline; 
 	justify-content: space-between;
+}
+
+.login-button {
+	display: flex;
+	margin: 0;
+	padding: 4px;
+	justify-content: center;
 }
 
 .dashboard-section {
