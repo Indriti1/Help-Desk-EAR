@@ -326,6 +326,11 @@ th {
 	display: flex;
 	align-items: baseline; 
 	justify-content: space-between;
+	margin-top:10px;
+}
+
+.error-left-margin {
+	margin-left: 19%;
 }
 
 .login-button {

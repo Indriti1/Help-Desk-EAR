@@ -22,10 +22,13 @@
         <h:form>
             <div class="form-group div-form">
                 <h:outputLabel for="hours" value="Hours Worked:" />
-                <h:inputText id="hours" a:type="number" value="#{employeeDashboardBean.hoursWorked}" required="true" />
+                <h:inputText id="hours" a:type="number" value="#{employeeDashboardBean.hoursWorked}" required="true" requiredMessage="Logged hours are required"/>
             </div>
-            <h:commandButton value="Enter Hours" action="#{employeeDashboardBean.logHours}" styleClass="btn btn-success" />
-            <h:link outcome="employeeDashboard" value="Cancel" styleClass="btn btn-danger" />
+            <h:message for="hours" styleClass="error-message error-left-margin" />
+            <div>
+            	<h:commandButton value="Enter Hours" action="#{employeeDashboardBean.logHours}" styleClass="btn btn-success" />
+            	<h:link outcome="employeeDashboard" value="Cancel" styleClass="btn btn-danger" />
+            </div>
         </h:form>
     </div>
 </h:body>

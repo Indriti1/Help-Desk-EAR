@@ -21,18 +21,22 @@
         <h:form>
             <div class="form-group div-form">
                 <h:outputLabel for="projectName" value="Project Name:" />
-                <h:inputText id="projectName" value="#{projectBean.selectedProject.name}" required="true" />
+                <h:inputText id="projectName" value="#{projectBean.selectedProject.name}" required="true" requiredMessage="Project name is required"/>
             </div>
-      
+      		<h:message for="projectName" styleClass="error-message error-left-margin" />
+      		
             <div class="form-group div-form">
                 <h:outputLabel for="customer" value="Customer:" />
-                <h:selectOneMenu id="customer" value="#{projectBean.selectedCustomerId}" required="true">
+                <h:selectOneMenu id="customer" value="#{projectBean.selectedCustomerId}" required="true" requiredMessage="Customer is required">
                     <f:selectItems value="#{projectBean.customers}" var="customer"
                                    itemLabel="#{customer.username}" itemValue="#{customer.id}" />
                 </h:selectOneMenu>
             </div>
-            <h:commandButton value="Update Project" action="#{projectBean.updateProject}" styleClass="btn btn-primary" />
-            <h:link outcome="manageProjects" value="Cancel" styleClass="btn btn-danger" />
+            <h:message for="customer" styleClass="error-message error-left-margin" />
+            <div>
+            	<h:commandButton value="Update Project" action="#{projectBean.updateProject}" styleClass="btn btn-primary" />
+            	<h:link outcome="manageProjects" value="Cancel" styleClass="btn btn-danger" />
+            </div>
         </h:form>
     </div>
 </h:body>

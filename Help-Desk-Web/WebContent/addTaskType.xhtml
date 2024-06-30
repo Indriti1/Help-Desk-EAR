@@ -21,10 +21,13 @@
         <h:form>
         	<div class="form-group div-form">
                 <h:outputLabel for="typeName" value="Task Type Name:" />
-                <h:inputText id="typeName" value="#{taskTypeBean.newTaskType.name}" required="true" />
+                <h:inputText id="typeName" value="#{taskTypeBean.newTaskType.name}" required="true" requiredMessage="Task type name is required"/>
             </div>
-            <h:commandButton value="Add Task Type" action="#{taskTypeBean.addTaskType}" styleClass="btn btn-success" />
-            <h:link outcome="manageTaskTypes" value="Cancel" styleClass="btn btn-danger" />
+            <h:message for="typeName" styleClass="error-message error-left-margin" />
+            <div>
+            	<h:commandButton value="Add Task Type" action="#{taskTypeBean.addTaskType}" styleClass="btn btn-success" />
+            	<h:link outcome="manageTaskTypes" value="Cancel" styleClass="btn btn-danger" />
+            </div>
         </h:form>
     </div>
 </h:body>

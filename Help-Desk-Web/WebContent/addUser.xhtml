@@ -21,24 +21,29 @@
         <h:form>
             <div class="form-group div-form">
                 <h:outputLabel for="username" value="Username:" />
-                <h:inputText id="username" value="#{userBean.newUser.username}" required="true" />
+                <h:inputText id="username" value="#{userBean.newUser.username}" required="true" requiredMessage="Username is required" />
             </div>
-             <div class="form-group div-form" style="display: flex;align-items: baseline;">
-                <h:outputLabel for="password" value="Password" />
-                <h:inputSecret class="secret" id="password" value="#{userBean.newUser.password}" required="true" />
+            <h:message for="username" styleClass="error-message error-left-margin" />
+             <div class="form-group div-form">
+                <h:outputLabel for="password" value="Password:" />
+                <h:inputSecret class="secret" id="password" value="#{userBean.newUser.password}" required="true" requiredMessage="Password is required" />
             </div>
-            <div class="form-group div-form" style="display: flex;align-items: baseline;">
+            <h:message for="password" styleClass="error-message error-left-margin" />
+            <div class="form-group div-form">
                 <h:outputLabel for="email" value="Email:" />
-                <h:inputText id="email" value="#{userBean.newUser.email}" required="true" />
+                <h:inputText id="email" value="#{userBean.newUser.email}" required="true" requiredMessage="Email is required"/>
             </div>
-            <div class="form-group div-form" style="display: flex;align-items: baseline;">
+            <h:message for="email" styleClass="error-message error-left-margin" />
+            <div class="form-group div-form">
                 <h:outputLabel for="role" value="Role:" />
                 <h:selectOneMenu id="role" value="#{userBean.newUser.role}">
                     <f:selectItems value="#{userBean.roles}" />
                 </h:selectOneMenu>
             </div>
-            <h:commandButton value="Add User" action="#{userBean.addUser}" styleClass="btn btn-success" />
-            <h:link outcome="manageUsers" value="Cancel" styleClass="btn btn-danger" />
+            <div>
+            	<h:commandButton value="Add User" action="#{userBean.addUser}" styleClass="btn btn-success" />
+            	<h:link outcome="manageUsers" value="Cancel" styleClass="btn btn-danger" />
+            </div>
         </h:form>
     </div>
 </h:body>

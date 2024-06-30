@@ -21,20 +21,24 @@
         <h:form>
             <div class="form-group div-form">
                 <h:outputLabel for="username" value="Username:" />
-                <h:inputText id="username" value="#{userBean.selectedUser.username}" required="true" />
+                <h:inputText id="username" value="#{userBean.selectedUser.username}" required="true" requiredMessage="Username is required"/>
             </div>
+            <h:message for="username" styleClass="error-message error-left-margin" />
             <div class="form-group div-form">
                 <h:outputLabel for="email" value="Email:" />
-                <h:inputText id="email" value="#{userBean.selectedUser.email}" required="true" />
+                <h:inputText id="email" value="#{userBean.selectedUser.email}" required="true" requiredMessage="Email is required"/>
             </div>
+            <h:message for="email" styleClass="error-message error-left-margin" />
             <div class="form-group div-form">
                 <h:outputLabel for="role" value="Role:" />
                 <h:selectOneMenu id="role" value="#{userBean.selectedUser.role}">
                     <f:selectItems value="#{userBean.roles}" />
                 </h:selectOneMenu>
             </div>
-            <h:commandButton value="Update User" action="#{userBean.updateUser}" styleClass="btn btn-primary" />
-            <h:link outcome="manageUsers" value="Cancel" styleClass="btn btn-danger" />
+            <div>
+            	<h:commandButton value="Update User" action="#{userBean.updateUser}" styleClass="btn btn-primary" />
+            	<h:link outcome="manageUsers" value="Cancel" styleClass="btn btn-danger" />
+            </div>
         </h:form>
     </div>
 </h:body>
